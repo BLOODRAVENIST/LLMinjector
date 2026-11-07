@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BLOODRAVENIST — LLM Prompt Injection Scanner</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+<header>
+    <h1>⚡ BLOODRAVENIST</h1>
+    <span class="sub">LLM Prompt Injection Scanner — by BLOODRAVENIST</span>
+</header>
+
+<main>
+    <section id="ai-panel">
+        <h2>🤖 AI Payload Generator</h2>
+        <div class="row">
+            <label>Gemini API Key <input id="gemini-key" type="password" placeholder="AIza..."></label>
+            <label>DeepSeek API Key <input id="deepseek-key" type="password" placeholder="sk-..."></label>
+            <button onclick="saveKeys()">Save Keys</button>
+        </div>
+        <div class="row">
+            <select id="ai-provider">
+                <option value="gemini">Gemini</option>
+                <option value="deepseek">DeepSeek</option>
+            </select>
+            <select id="ai-category">
+                <option value="jailbreak">Jailbreak</option>
+                <option value="leak">System Prompt Leak</option>
+                <option value="bypass">Filter Bypass</option>
+                <option value="super">Super Prompt</option>
+            </select>
+            <input id="ai-count" type="number" value="5" min="1" max="20" style="width:60px">
+            <button onclick="generateAI()">Generate Payloads</button>
+        </div>
+        <div id="ai-status"></div>
+    </section>
+
+    <section id="prompt-panel">
+        <h2>📦 Prompt Library</h2>
+        <div id="prompt-list"></div>
+    </section>
+
+    <section id="scanner-panel">
+        <h2>🔍 Scanner</h2>
+        <div class="row">
+            <label>Target URL <input id="target" type="text" placeholder="http://target.example.com/chat" style="width:400px"></label>
+            <select id="method">
+                <option>POST</option>
+                <option>GET</option>
+            </select>
+            <label>Delay (ms) <input id="delay" type="number" value="400" style="width:80px"></label>
+        </div>
+        <textarea id="template" rows="10" placeholder='Paste request body here. Use §...§ to mark injection point, e.g. {"messages":[{"role":"user","content":"§hello§"}]}'></textarea>
+        <div class="row">
+            <button onclick="startScan()">🚀 Start Scan</button>
+            <button onclick="stopScan()" id="stop-btn" disabled>⏹ Stop</button>
+        </div>
+    </section>
+
+    <section id="results-panel">
+        <h2>📋 Results</h2>
+        <div class="row">
+            <button onclick="exportReport()">📄 Export HTML Report</button>
+        </div>
+        <table id="results-table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Prompt</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Match</th>
+                <th>Reason</th>
+                <th>Secrets</th>
+                <th>Confirm</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
