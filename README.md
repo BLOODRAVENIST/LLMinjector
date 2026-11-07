@@ -1,3 +1,4 @@
+
 <div align="center">
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&size=22&duration=2500&pause=600&color=00FF41&center=true&vCenter=true&width=900&lines=%5Broot%40BLOODRAVENIST%5D%23+./run.sh;LLM+Prompt+Injection+Scanner;Web+GUI+%7C+Gemini+%2B+DeepSeek+AI;Payload+Generation+on+Autopilot" alt="Terminal" />
@@ -7,6 +8,9 @@
 ### LLM Prompt Injection Scanner — Web GUI
 
 **AI-powered prompt injection scanner with Gemini / DeepSeek payload generation and live WebSocket streaming**
+
+<img width="937" height="760" alt="Screenshot 2026-11-07 131907" src="https://github.com/user-attachments/assets/42bbe0be-31f7-4c82-899e-1ee507244054" />
+
 
 **Made by [BLOODRAVENIST](https://github.com/BLOODRAVENIST)**
 
